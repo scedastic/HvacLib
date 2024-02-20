@@ -6,31 +6,28 @@ using System.Threading.Tasks;
 
 namespace HvacLibrary
 {
-    public class IfGreaterThanBlock : IfBlock
+    public class IfLessThanBlock : IfBlock
     {
-        public bool Inclusive { get; set; } 
-
-        public IfGreaterThanBlock(double criteria, bool inclusive=false) : base(criteria)
+        public IfLessThanBlock(double criteria, bool inclusive) : base(criteria)
         {
             Inclusive = inclusive;
         }
 
         public override void Update(double newValue)
         {
-            if(!Inclusive && newValue > Criteria)
+            if (!Inclusive && newValue < Criteria)
             {
                 _status = true;
             }
-            else if(Inclusive && newValue >= Criteria) 
-            { 
+            else if (Inclusive && newValue <= Criteria)
+            {
                 _status = true;
             }
             else
             {
                 _status = false;
             }
-            
-        }
 
+        }
     }
 }

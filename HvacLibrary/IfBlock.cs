@@ -12,6 +12,11 @@ namespace HvacLibrary
         private List<IBinaryOutput> _listeners = new List<IBinaryOutput>();
         public double Criteria { get; set; }
 
+        /// <summary>
+        /// Whether to use > vs. >=
+        /// </summary>
+        public bool Inclusive { get; set; }
+
         public IfBlock(double criteria)
         { this.Criteria = criteria; }
 
