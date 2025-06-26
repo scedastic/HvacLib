@@ -10,6 +10,10 @@ namespace HvacLibrary
     {
         protected bool _status;
         private List<IBinaryOutput> _listeners = new List<IBinaryOutput>();
+        
+        /// <summary>
+        /// What we are comparing the input to.
+        /// </summary>
         public double Criteria { get; set; }
 
         /// <summary>
