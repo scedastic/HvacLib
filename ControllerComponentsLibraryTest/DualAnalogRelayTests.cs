@@ -7,6 +7,8 @@ public class DualAnalogRelayTests
     protected DualAnalogRelay subject;
     private double onValue = 13.0;
     private double offValue = 2.1;
+    private double negativeOnValue = -142.6;
+    private double negativeOffValue = -1042.9;
 
     [SetUp]
     public void Setup()
@@ -36,20 +38,20 @@ public class DualAnalogRelayTests
     [Test]
     public void NegativeValueOnTest()
     {
-        subject.OnInput = -1113.0;
+        subject.OnInput = negativeOnValue;
         subject.OffInput = offValue;
         subject.Condition = true;
         subject.Process();
-        Assert.That(Is.Equals(-1113.00, subject.Output));
+        Assert.That(Is.Equals(negativeOnValue, subject.Output));
     }
     [Test]
     public void NegativeValueOffTest()
     {
-        subject.OnInput = -1113.0;
-        subject.OffInput = offValue;
+        subject.OnInput = negativeOnValue;
+        subject.OffInput = negativeOffValue;
         subject.Condition = false;
         subject.Process();
-        Assert.That(Is.Equals(offValue, subject.Output));
+        Assert.That(Is.Equals(negativeOffValue, subject.Output));
     }
     [Test]
     public void ZeroValueOnTest()

@@ -11,6 +11,8 @@ namespace ControllerComponentsLibrary
         public double Input { protected get; set; }
         public bool Output { get; protected set; }
 
+        public double Criteria { get; set; }
+
         public void Process()
         {
             throw new NotImplementedException();

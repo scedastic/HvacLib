@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ControllerComponentsLibrary
 {
+    /// <summary>
+    /// Accepts two analog inputs: OnInput and OffInput. When the Condition is true, the Output will take the OnInput and when it's false it will be OffInput.
+    /// When the Condition changes value, the Output is not guaranteed to change until Process() is called.
+    /// </summary>
     public class DualAnalogRelay : IAnalogToAnalogBlock
     {
         public double OnInput { protected get; set; }
