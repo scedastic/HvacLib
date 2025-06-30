@@ -23,7 +23,6 @@ public class DualAnalogRelayTests
         subject.OnInput = onValue;
         subject.OffInput = offValue;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(onValue, subject.Output));
     }
     [Test]
@@ -32,7 +31,6 @@ public class DualAnalogRelayTests
         subject.OnInput = onValue;
         subject.OffInput = offValue;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(offValue, subject.Output));
     }
     [Test]
@@ -41,7 +39,6 @@ public class DualAnalogRelayTests
         subject.OnInput = negativeOnValue;
         subject.OffInput = offValue;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(negativeOnValue, subject.Output));
     }
     [Test]
@@ -50,7 +47,6 @@ public class DualAnalogRelayTests
         subject.OnInput = negativeOnValue;
         subject.OffInput = negativeOffValue;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(negativeOffValue, subject.Output));
     }
     [Test]
@@ -59,7 +55,6 @@ public class DualAnalogRelayTests
         subject.OnInput = 0.0;
         subject.OffInput = offValue;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
     }
     [Test]
@@ -68,7 +63,6 @@ public class DualAnalogRelayTests
         subject.OnInput = 0.0;
         subject.OffInput = offValue;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(offValue, subject.Output));
     }
 
@@ -78,11 +72,8 @@ public class DualAnalogRelayTests
         subject.OnInput = onValue;
         subject.OffInput = offValue;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(offValue, subject.Output));
         subject.Condition = true;
-        Assert.That(Is.Equals(offValue, subject.Output));
-        subject.Process();
         Assert.That(Is.Equals(onValue, subject.Output));
     }
 }

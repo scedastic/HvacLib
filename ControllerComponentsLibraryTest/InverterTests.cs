@@ -15,7 +15,6 @@ namespace ControllerComponentsLibraryTest
         {
             var testComponent = new Inverter();
             testComponent.Input = true;
-            testComponent.Process();
             Assert.That(testComponent.Output, Is.False);
         }
         [Test]
@@ -23,7 +22,6 @@ namespace ControllerComponentsLibraryTest
         {
             var testComponent = new Inverter();
             testComponent.Input = false;
-            testComponent.Process();
             Assert.That(testComponent.Output, Is.True);
         }
     }

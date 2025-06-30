@@ -16,7 +16,6 @@ public class AnalogRelayTests
     {
         subject.Input = 13.0;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(13.0, subject.Output));
     }
     [Test]
@@ -24,7 +23,6 @@ public class AnalogRelayTests
     {
         subject.Input = 13.0;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
     }
     [Test]
@@ -32,7 +30,6 @@ public class AnalogRelayTests
     {
         subject.Input = -1113.0;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(-1113.00, subject.Output));
     }
     [Test]
@@ -40,7 +37,6 @@ public class AnalogRelayTests
     {
         subject.Input = -1113.0;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
     }
     [Test]
@@ -48,7 +44,6 @@ public class AnalogRelayTests
     {
         subject.Input = 0.0;
         subject.Condition = true;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
     }
     [Test]
@@ -56,7 +51,6 @@ public class AnalogRelayTests
     {
         subject.Input = 0.0;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
     }
 
@@ -65,11 +59,8 @@ public class AnalogRelayTests
     {
         subject.Input = 13.0;
         subject.Condition = false;
-        subject.Process();
         Assert.That(Is.Equals(0.0, subject.Output));
         subject.Condition = true;
-        Assert.That(Is.Equals(0.0, subject.Output));
-        subject.Process();
         Assert.That(Is.Equals(13.0, subject.Output));
     }
 }

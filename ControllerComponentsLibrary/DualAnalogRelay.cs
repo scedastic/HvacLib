@@ -12,15 +12,50 @@ namespace ControllerComponentsLibrary
     /// </summary>
     public class DualAnalogRelay : IAnalogToAnalogBlock
     {
-        public double OnInput { protected get; set; }
-        public double OffInput { protected get; set; } = 0;
+        private double _onInput;
+        private double _offInput;
+        private bool _condition;
+
+        public double OnInput 
+        { 
+            protected get
+            {
+                return _onInput;
+            } 
+            set
+            {
+                _onInput = value;
+                Process();
+            }
+        }
+        public double OffInput
+        {
+            protected get
+            {
+                return _offInput;
+            }
+            set
+            {
+                _offInput = value;
+                Process();
+            }
+        }
         public double Output { get; protected set; } = 0;
         public double Input
         {
             protected get { return OnInput; }
             set { OnInput = value; }
         }
-        public bool Condition { get; set; } = false;
+        public bool Condition 
+        {
+            get { return _condition; }
+            set
+            {
+                _condition = value;
+                Process();
+            }
+        
+        } 
         public void Process()
         {
             if (Condition)

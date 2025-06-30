@@ -18,7 +18,6 @@ public class ProofBlockTests
     {
         alarm.EquipmentCommand = true;
         alarm.EquipmentStatus = false;
-        alarm.Process();
         Assert.That(alarm.Fail, Is.True);
         Assert.That(alarm.InHand, Is.False);
     }
@@ -28,7 +27,6 @@ public class ProofBlockTests
         
         alarm.EquipmentCommand = false;
         alarm.EquipmentStatus = true;
-        alarm.Process();
         Assert.That(alarm.Fail, Is.False);
         Assert.That(alarm.InHand, Is.True);
     }
@@ -38,7 +36,6 @@ public class ProofBlockTests
     {
         alarm.EquipmentCommand = true;
         alarm.EquipmentStatus = true;
-        alarm.Process();
         Assert.That(alarm.Fail, Is.False);
         Assert.That(alarm.InHand, Is.False);
     }
@@ -47,7 +44,6 @@ public class ProofBlockTests
     {
         alarm.EquipmentCommand = false;
         alarm.EquipmentStatus = false;
-        alarm.Process();
         Assert.That(alarm.Fail, Is.False);
         Assert.That(alarm.InHand, Is.False);
     }
@@ -56,11 +52,9 @@ public class ProofBlockTests
     {
         alarm.EquipmentCommand = false;
         alarm.EquipmentStatus = true;
-        alarm.Process();
         Assert.That(alarm.Output, Is.True);
         alarm.EquipmentCommand = true;
         alarm.EquipmentStatus = false;
-        alarm.Process();
         Assert.That(alarm.Output, Is.True);
     }
     [Test]
@@ -68,11 +62,9 @@ public class ProofBlockTests
     {
         alarm.EquipmentCommand = false;
         alarm.EquipmentStatus = false;
-        alarm.Process();
         Assert.That(alarm.Output, Is.False);
         alarm.EquipmentCommand = true;
         alarm.EquipmentStatus = true;
-        alarm.Process();
         Assert.That(alarm.Output, Is.False);
     }
 }

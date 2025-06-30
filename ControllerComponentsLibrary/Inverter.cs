@@ -8,7 +8,13 @@ namespace ControllerComponentsLibrary
 {
     public class Inverter : IBinaryToBinaryBlock
     {
-        public bool Input { get; set; }
+        private bool _input;
+        public bool Input { get { return _input; } 
+            set {
+                _input = value;
+                Process();
+            }
+        }
         public bool Output { get; set; }
 
         public void Process()

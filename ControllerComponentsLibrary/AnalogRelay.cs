@@ -8,15 +8,34 @@ namespace ControllerComponentsLibrary
 {
     public class AnalogRelay : IAnalogToAnalogBlock
     {
-        public double Input { protected get; set; }
-        public double Output { get; protected set; } = 0;
+        private double _input;
+        private bool _condition;
 
-        public bool Condition { get; set; } = false;
+        public double Input 
+        {
+            protected get { return _input; }
+            set
+            {
+                _input = value;
+                Process();
+            } 
+        }
+        public double Output { get; protected set; } 
+
+        public bool Condition 
+        {
+            get { return _condition; }
+            set
+            { 
+                _condition = value; 
+                Process();
+            } 
+        } 
         public void Process()
         {
             if (Condition)
             {
-                Output = Input;
+                Output = _input;
             }
             else
             {

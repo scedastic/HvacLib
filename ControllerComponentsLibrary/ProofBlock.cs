@@ -13,8 +13,26 @@ namespace ControllerComponentsLibrary
     /// </summary>
     public class ProofBlock : IBinaryToBinaryBlock
     {
-        public bool EquipmentStatus { get; set; }
-        public bool EquipmentCommand { get; set; }
+        private bool _equipmentStatus;
+        private bool _equipmentCommand;
+        public bool EquipmentStatus
+        {
+            get { return _equipmentStatus; }
+            set
+            {
+                _equipmentStatus = value;
+                Process();
+            }
+        }
+        public bool EquipmentCommand 
+        {
+            get { return _equipmentCommand; }
+            set
+            {
+                _equipmentCommand = value;
+                Process();
+            }
+        }
 
         public bool Fail { get; protected set; }
         public bool InHand { get; protected set; }
